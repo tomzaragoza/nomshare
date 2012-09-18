@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}NomShare | Tweet what you eat!{% endblock %}
+
+{% block main %}
+
+	<form action="/nomfeed" method="post">
+		<fieldset>
+			<center>
+				<label for="name">Welcome, </label>
+				<br/>
+				<label for"name">
+					<img src="{{user_img}}" alt="authenticated_user"/>
+					<a href="http://www.twitter.com/{{auth_user}}" target="_blank">@{{auth_user}}!</a>
+					
+					</label>
+				<br/>
+				<br/>
+				<label for="name"> Enter a username to check their NomFeed:</label>
+				<input type="text" name="username"/>
+				<input type="submit"/>
+				
+				
+				
+			</center>
+		</fieldset>
+	</form>
+	
+         
+    
+    
+    <div class="footer"> 
+        <small> © 2012 NomShare, by <a rel="nofollow" href="http://about.me/tomzaragoza">Thomas Zaragoza</a></small>
+        </div> 
+
+    <script> 
+        (function(w,d){
+            Modernizr.load({load: '//connect.facebook.net/en_US/all.js#xfbml=1'});
+            Modernizr.load({load: '//platform.twitter.com/widgets.js'});
+            Modernizr.load({load: 'https://apis.google.com/js/plusone.js'});
+        }(this,document));
+    </script>  
+{% endblock %}

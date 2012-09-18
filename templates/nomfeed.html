@@ -1,0 +1,87 @@
+{% extends "nomfeed_base.html" %}
+
+{% block title %}NomShare | The NomFeed{% endblock %}
+
+{% block head_include %}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript" ></script>
+	<script src="/js/libs/jquery.livetwitter.js" type="text/javascript"></script>
+	<style type="text/css" media="screen">
+		a, a:visited {
+			color: #2989C9;
+		}
+		a:hover {
+			color: #111;
+		}
+		.tweet {
+			background: #EEEEEE;
+			margin: 4px 0;
+			width: 500px;
+			padding: 8px;
+			-moz-border-radius: 8px;
+			-webkit-border-radius: 8px;
+		}
+		.tweet img {
+			float: left;
+			margin: 0 8px 4px 0;
+		}
+		.tweet .text {
+			margin: 0;
+		}
+		.tweet .time a {
+			font-size: 80%;
+			color: #888;
+			white-space: nowrap;
+			text-decoration: none;
+		}
+		.tweet .time a:hover {
+			text-decoration: underline;
+		}
+		#twitterSearch .tweet {
+			min-height: 24px;
+		}
+		#twitterSearch .tweet .text {
+			margin-left: 32px;
+		}
+	</style>
+{% endblock %}
+
+{% block main %}	
+	<form action="/nomfeed" method="post">
+		<fieldset>
+			<h3>Check someone else's NomFeed:</h3>
+			<input type="text" name="username"/>
+			<input type="submit"/>
+		</fieldset>
+	</form>
+	
+	<h2><a href="http://twitter.com/{{username}}">@{{username}}'s</a> NomFeed</h2>
+		<div id="twitterUserTimeline" class="tweets"></div>
+
+	<h2>Timeline for <em><span id="searchTerm">#NomShare and #NomNation</span></em>..</h2>
+		<div id="twitterSearch" class="tweets"></div>
+	
+	<script type="text/javascript">
+		
+		// Basic usage
+		$('#twitterSearch').liveTwitter('#nomnation OR #nomshare', {limit: 15, rate: 100000, rpp: 100});
+		$('#twitterUserTimeline').liveTwitter("#nomnation OR #nomshare from:{{username}}", {limit: 15, rpp: 100, rate: 200000, until: 2011-01-01});
+		//$('#twitterUserTimeline').liveTwitter('http:// #NomNation from:{{username}}');
+		//$('#twitterUserTimeline').liveTwitter('{{username}}', {limit: 10, rpp: 100, mode: 'user_timeline', filter: function(tweet){
+                //return (tweet.text.match(/#NomShare/));
+        //}});
+		// Changing the query
+		$('#searchLinks a').each(function(){
+			var query = $(this).text();
+			$(this).click(function(){
+				// Update the search
+				$('#twitterSearch').liveTwitter(query);
+				// Update the header
+				$('#searchTerm').text(query);
+				return false;
+			});
+		});
+
+	</script>
+{% endblock %}
+

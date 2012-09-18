@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}NomShare | What's the Twitter World Eating?{% endblock %}
+
+{% block main %}
+
+<!--<div id="thebodycontent">-->
+	<form action="#" method="post">
+		<fieldset>
+			<center>
+				<label for="name">Wonder what people are eating?</label>
+				<a href="{{ authurl }}"><img src="/img/sign-in-with-twitter-d.png" alt="login with twitter"></a>
+				&nbsp;
+				<br/>
+				<br/>
+				<iframe width="600" height="437" src="http://www.youtube.com/embed/SMWi7CLoZ2Q" frameborder="0" allowfullscreen></iframe>
+			<label for"name">Feedback? Suggestions?</label>
+				<a href="https://twitter.com/intent/tweet?screen_name=tomzaragoza" class="twitter-mention-button">Tweet to @tomzaragoza</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				
+			</center>
+
+				
+		</fieldset>
+	</form>
+	
+<!--</div>-->
+         
+ 
+
+    <div class="share-bar"> 
+        <div class="share-opt"> 
+            <a rel="nofollow" class="twitter-share-button" 
+               href="http://twitter.com/share" 
+               data-count="vertical" 
+               data-text="Check out NomShare! http://nomshare.com"></a> 
+        </div> 
+        
+       <div class="share-opt"> 
+            <g:plusone size="tall"></g:plusone> 
+        </div> 
+
+        <div class="share-opt"> 
+            <fb:like href="" send="false" layout="box_count" width="40" show_faces="false" font=""></fb:like> 
+            <div id="fb-root"></div> 
+        </div> 
+        <h2><a href="http://nomshare.blogspot.com">Follow the blog for updates!</a></h2>
+    </div> 
+    
+    
+    <div class="footer"> 
+        <p><a href="http://www.twitter.com/"><img src="http://4.bp.blogspot.com/_HqHzY-Dpn9g/SwOV1jHITsI/AAAAAAAAIlw/IgYLHTLb6K4/s400/free-twitter-button2.gif"></a>
+        	<a href="http://www.w3.org/html/logo/"><img src="http://www.w3.org/html/logo/downloads/HTML5_Logo_32.png"/></a>
+    		<img src="http://code.google.com/appengine/images/appengine-silver-120x30.gif"alt="Powered by Google App Engine" />
+    	</p>
+    	
+    	
+    	<p><small> © 2012 NomShare, by <a rel="nofollow" href="http://about.me/tomzaragoza">Thomas Zaragoza</a></small>
+        	    <!--<p><small>Contributions by <a rel="nofollow" href="http://twitter.com/metachris">Chris Hager</a> <small>★</small> <a rel="nofollow" href="https://github.com/foamdino">Kev Jackson</a> <small>★</small> <a rel="nofollow" href="https://github.com/raultorres88">raultorres88</a></small></p>
+    			-->
+    	</p>
+    
+    </div> 
+
+    <script> 
+        (function(w,d){
+            Modernizr.load({load: '//connect.facebook.net/en_US/all.js#xfbml=1'});
+            Modernizr.load({load: '//platform.twitter.com/widgets.js'});
+            Modernizr.load({load: 'https://apis.google.com/js/plusone.js'});
+        }(this,document));
+    </script>  
+{% endblock %}
